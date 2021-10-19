@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     container: inseefrlab/utilitr:latest
     steps:
-      - name: Checkout Repository
+      - name: Checkout Repository with GITHUB_TOKEN
         env:
           GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
         uses: actions/checkout@master
