@@ -18,14 +18,14 @@ jobs:
     steps:
       - name: Checkout Repository with GITHUB_TOKEN
         env:
-          GITHUB_TOKEN: ${{ github.token }}
+          GITHUB_PAT: ${{ github.token }}
         uses: actions/checkout@master
       - name: Install Dependencies
         run: |
           Rscript -e "install.packages(c('remotes'))"
           Rscript -e "remotes::install_github('rstudio/htmltools', auth_token = Sys.getenv('GITHUB_TOKEN'))"
         env:
-          GITHUB_TOKEN: ${{ github.token }}
+          GITHUB_PAT: ${{ github.token }}
       - name: Render Book
         run: Rscript -e 'bookdown::render_book("index.Rmd", output_format = "utilitr::bs4_utilitr", output_dir = "_public")'
       - uses: actions/upload-artifact@v2
