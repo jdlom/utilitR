@@ -23,7 +23,7 @@ jobs:
       - name: Install Dependencies
         run: |
           Rscript -e "install.packages(c('remotes'))"
-          Rscript -e "remotes::install_github('rstudio/htmltools', auth_token = Sys.getenv('GITHUB_TOKEN')"
+          Rscript -e "remotes::install_github('rstudio/htmltools', auth_token = Sys.getenv('GITHUB_TOKEN'))"
         env:
           GITHUB_TOKEN: ${{ github.token }}
       - name: Render Book
